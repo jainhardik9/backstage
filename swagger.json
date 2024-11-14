@@ -1,0 +1,339 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "version" : "3.0.1",
+    "title" : "Teams API",
+    "description" : "API for managing teams",
+    "contact" : {
+      "name" : "API Support",
+      "email" : "sunil.m@yash.com"
+    },
+    "termsOfService" : "http://swagger.io/terms/",
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "https://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "paths" : {
+    "/players" : {
+      "get" : {
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "playerId",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          },
+          "description" : "playerId"
+        } ],
+        "operationId" : "listPlayers",
+        "description" : "api to list players",
+        "summary" : "list players",
+        "responses" : {
+          "200" : {
+            "description" : "list player",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Methods" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Headers" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PlayersDto"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "error message",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Methods" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Headers" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "parameters" : [ ],
+        "operationId" : "addPlayer",
+        "description" : "api to add player",
+        "summary" : "add player",
+        "requestBody" : {
+          "description" : "add player request body",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/PlayersDto"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Methods" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Headers" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PlayersDto"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "error message ",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Methods" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Headers" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/teams" : {
+      "get" : {
+        "parameters" : [ ],
+        "operationId" : "listTeams",
+        "description" : "API to list teams",
+        "summary" : "list Teams",
+        "responses" : {
+          "200" : {
+            "description" : "list teams",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Methods" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Headers" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TeamDto"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Methods" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Headers" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "parameters" : [ ],
+        "operationId" : "createTeam",
+        "description" : "method to create team",
+        "summary" : "api to create team",
+        "requestBody" : {
+          "description" : "team request body",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/TeamDto"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "team success response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Methods" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Headers" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TeamDto"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "team error response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Methods" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Headers" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "PlayersDto" : {
+        "type" : "object",
+        "properties" : {
+          "playerId" : {
+            "type" : "integer"
+          },
+          "playerName" : {
+            "type" : "string"
+          },
+          "playerType" : {
+            "type" : "string"
+          }
+        }
+      },
+      "ErrorMessage" : {
+        "type" : "object",
+        "properties" : {
+          "message" : {
+            "type" : "string"
+          }
+        }
+      },
+      "TeamDto" : {
+        "type" : "object",
+        "properties" : {
+          "teamId" : {
+            "type" : "string"
+          },
+          "teamName" : {
+            "type" : "string"
+          },
+          "teamOwner" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  }
+}
